@@ -44,7 +44,7 @@ export default function Page() {
 									</h1>
 									<p className="max-w-[600px] text-zinc-700 md:text-xl dark:text-zinc-400">
 										Sviluppa le tue capacità comunicative e di relazione
-										attraverso l'arte della lettura espressiva
+										attraverso l&apos;arte della lettura espressiva
 									</p>
 								</div>
 								<div className="flex flex-col gap-2 min-[400px]:flex-row">
@@ -91,7 +91,7 @@ export default function Page() {
 								<h3 className="text-xl font-bold">Espressività</h3>
 								<p className="text-zinc-500">
 									Tecniche di interpretazione per dare vita alle parole e
-									catturare l'attenzione
+									catturare l&apos;attenzione
 								</p>
 							</Card>
 							<Card className="p-6 space-y-2">
