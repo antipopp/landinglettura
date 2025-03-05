@@ -79,8 +79,9 @@ export default function Home() {
 							<p className="text-lg text-gray-700 mb-8">
 								Dedicato agli amanti della lettura, ai docenti, agli studenti,
 								agli avvocati, ai magistrati, ai politici, alle mamme, ai nonni
-								etc. a chiunque utilizzi la voce come strumento di lavoro
+								etc.
 							</p>
+							<p className="text-lg text-gray-700 mb-8">A chiunque utilizzi la voce come strumento di lavoro</p>
 							<Button
 								size="lg"
 								className="bg-black text-white hover:bg-gray-800 font-bold px-8 py-6 text-lg rounded-full"
