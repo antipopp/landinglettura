@@ -120,7 +120,7 @@ export default function Home() {
 							<BookOpen className="w-12 h-12 mb-4 text-black" />
 							<h3 className="text-xl font-bold mb-2">Metodi collaudati</h3>
 							<p className="text-gray-700">
-								15 anni di formazione dedicata all'arte della voce.
+								15 anni di formazione dedicata all&apos;arte della voce.
 							</p>
 						</Card>
 
@@ -128,16 +128,16 @@ export default function Home() {
 							<Mic className="w-12 h-12 mb-4 text-black" />
 							<h3 className="text-xl font-bold mb-2">Risultati tangibili</h3>
 							<p className="text-gray-700">
-								Migliora la tua dizione, il tono, l'espressività e la sicurezza.
+								Migliora la tua dizione, il tono, l&apos;espressività e la sicurezza.
 							</p>
 						</Card>
 					</div>
 
 					<div className="mt-16 text-center">
 						<blockquote className="text-2xl italic font-light mb-8 max-w-3xl mx-auto">
-							"La voce è lo strumento più potente che hai. Impara a usarla per
+							&quot;La voce è lo strumento più potente che hai. Impara a usarla per
 							lasciare il segno in ogni conversazione, presentazione o
-							performance."
+							performance.&quot;
 						</blockquote>
 						<Button
 							size="lg"
@@ -150,7 +150,7 @@ export default function Home() {
 				</div>
 			</section>
 
-			{/* What You'll Learn Section */}
+			{/* What You&apos;ll Learn Section */}
 			<section className="py-20 bg-gray-900 text-white">
 				<div className="container mx-auto px-4">
 					<h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">
@@ -191,7 +191,7 @@ export default function Home() {
 								<h3 className="text-xl font-bold">Lettura a voce alta</h3>
 							</div>
 							<p className="text-gray-300">
-								Padroneggia l'arte di leggere in modo coinvolgente e persuasivo.
+								Padroneggia l&apos;arte di leggere in modo coinvolgente e persuasivo.
 							</p>
 						</div>
 
@@ -286,8 +286,8 @@ export default function Home() {
 							</div>
 
 							<p className="text-lg italic mb-8">
-								"La mia missione è aiutarti a trovare la tua voce autentica e a
-								usarla per raggiungere i tuoi obiettivi."
+								&quot;La mia missione è aiutarti a trovare la tua voce autentica e a
+								usarla per raggiungere i tuoi obiettivi.&quot;
 							</p>
 
 							<Button

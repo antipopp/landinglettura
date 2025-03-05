@@ -52,7 +52,7 @@ export function SignupDialog({ open, onOpenChange }: SignupDialogProps) {
 			setName("");
 			setEmail("");
 			onOpenChange(false);
-		} catch (error) {
+		} catch (_) {
 			toast("Si è verificato un errore. Riprova più tardi.");
 		} finally {
 			setIsSubmitting(false);
