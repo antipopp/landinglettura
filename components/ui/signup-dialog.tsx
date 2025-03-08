@@ -67,7 +67,7 @@ export function SignupDialog({ open, onOpenChange }: SignupDialogProps) {
 						Iscriviti per saperne di più
 					</DialogTitle>
 					<DialogDescription>
-						Inserisci i tuoi dati per ricevere informazioni sul corso di Carlo
+						Inserisci i tuoi dati per ricevere informazioni sul corso con Carlo
 						Cartier.
 					</DialogDescription>
 				</DialogHeader>
@@ -108,7 +108,7 @@ export function SignupDialog({ open, onOpenChange }: SignupDialogProps) {
 							className="w-full bg-black text-white hover:bg-gray-800"
 							disabled={isSubmitting}
 						>
-							{isSubmitting ? "Invio in corso..." : "ISCRIVITI ORA"}
+							{isSubmitting ? "Invio in corso..." : "INVIA"}
 						</Button>
 					</DialogFooter>
 				</form>

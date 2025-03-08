@@ -23,10 +23,10 @@ export default function Home() {
 	};
 
 	return (
-		<div className="min-h-screen bg-white">
+		<div className="min-h-screen bg-white text-slate-800">
 			{/* Hero Section */}
-			<section className="relative overflow-hidden bg-black text-white">
-				<div className="absolute inset-0 opacity-20">
+			<section className="relative overflow-hidden bg-slate-50 text-gray-900">
+				{/* <div className="absolute inset-0 opacity-20">
 					<Image
 						src="/landing.jpg"
 						alt="Voice expression art"
@@ -34,61 +34,95 @@ export default function Home() {
 						className="object-cover"
 						priority
 					/>
-				</div>
+				</div> */}
 				<div className="container mx-auto px-4 py-24 relative z-10">
 					<div className="max-w-3xl mx-auto text-center">
-						<h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-							Scopri il Potere della Tua Voce con Carlo Cartier
+						<h1 className="text-4xl md:text-6xl font-bold leading-tight">
+							Scopri il Potere
 						</h1>
-						<p className="text-xl md:text-2xl mb-8 font-light">
-							Trasforma la Tua Lettura in Arte
+						<h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+							della Tua Voce
+						</h1>
+						<h3 className="text-xl md:text-2xl font-bold mb-6 leading-tight">
+							con
+						</h3>
+						<h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+							Carlo Cartier
+						</h1>
+						<p className="text-xl md:text-2xl mb-8 font-bold">
+							Trasforma la tua voce in un&apos;alleata straordinaria
 						</p>
-						<p className="text-lg mb-10">
-							Dopo 45 anni di carriera e 15 anni di formazione, ti guido passo
-							dopo passo per curare, migliorare e padroneggiare la tua voce.
+						<p className="text-2xl mb-10 font-bold">
+							Corsi interattivi di lettura a voce alta per comunicare con sicurezza ed emozione.
 						</p>
 						<Button
 							size="lg"
-							className="bg-white text-black hover:bg-gray-200 hover:text-black font-bold px-8 py-6 text-lg rounded-full"
+							className="bg-red-600 text-white hover:bg-red-500 font-bold px-8 py-6 text-lg rounded-full"
 							onClick={openSignupDialog}
 						>
-							ISCRIVITI PER SAPERNE DI PIÙ <ChevronRight className="ml-2" />
+							PER SAPERNE DI PIÙ <ChevronRight className="ml-2" />
 						</Button>
 					</div>
 				</div>
 			</section>
 
-			{/* Introduction Section */}
-			<section className="py-20 bg-gray-50">
+			{/* About Instructor Section */}
+			<section className="py-20 bg-white">
 				<div className="container mx-auto px-4">
 					<div className="flex flex-col md:flex-row items-center gap-12">
 						<div className="md:w-1/2">
-							<Image
-								src="/professionale.jpeg"
-								alt="Carlo Cartier"
-								width={400}
-								height={400}
-								className="rounded-lg shadow-xl"
-							/>
-						</div>
-						<div className="md:w-1/2">
-							<h2 className="text-3xl font-bold mb-6">
-								La voce è il tuo biglietto da visita: impara ad usarla per
-								comunicare con sicurezza
+							<h2 className="text-3xl md:text-4xl font-bold mb-4">
+								Chi è Carlo Cartier?
 							</h2>
-							<p className="text-lg text-gray-700 mb-8">
-								Dedicato agli amanti della lettura, ai docenti, agli studenti,
-								agli avvocati, ai magistrati, ai politici, alle mamme, ai nonni
-								etc.
+							<p className="text-lg mb-8">
+								Attore, formatore e coach vocale con oltre 45 anni di esperienza
+								nel mondo dello spettacolo e della formazione. Ha lavorato con
+								alcuni dei più grandi nomi del teatro e del cinema, e ora mette
+								la sua esperienza al tuo servizio per aiutarti a scoprire il
+								potenziale della tua voce.
 							</p>
-							<p className="text-lg text-gray-700 mb-8">A chiunque utilizzi la voce come strumento di lavoro</p>
+
+							<div className="mb-8 flex flex-col items-start">
+								<h3 className="text-xl font-bold mb-2">Curriculum</h3>
+								<Button variant="link" size="lg" className="text-lg">
+									<Link
+										href="https://www.fiorellagiannelli.it/artisti/cartier-carlo/"
+										target="_blank"
+									>
+										- Fiorella Giannelli Consulenza Artistica
+									</Link>
+								</Button>
+								<Button variant="link" size="lg" className="text-lg">
+									<Link
+										href="https://www.imdb.com/it/name/nm0142025"
+										target="_blank"
+									>
+										- International Movie DataBase
+									</Link>
+								</Button>
+							</div>
+
+							<p className="text-lg italic mb-8">
+								&quot;La mia missione è aiutarti a trovare la tua voce autentica e a
+								usarla per raggiungere i tuoi obiettivi.&quot;
+							</p>
+
 							<Button
 								size="lg"
-								className="bg-black text-white hover:bg-gray-800 font-bold px-8 py-6 text-lg rounded-full"
+								className="bg-red-600 text-white hover:bg-red-500 font-bold px-8 py-6 text-lg rounded-full"
 								onClick={openSignupDialog}
 							>
-								ISCRIVITI PER SAPERNE DI PIÙ <ChevronRight className="ml-2" />
+								PER SAPERNE DI PIÙ <ChevronRight className="ml-2" />
 							</Button>
+						</div>
+						<div className="md:w-1/2">
+							<Image
+								src="/sorriso.jpeg"
+								alt="Carlo Cartier"
+								width={600}
+								height={600}
+								className="rounded-lg shadow-xl"
+							/>
 						</div>
 					</div>
 				</div>
@@ -144,8 +178,44 @@ export default function Home() {
 							className="bg-black text-white hover:bg-gray-800 font-bold px-8 py-6 text-lg rounded-full"
 							onClick={openSignupDialog}
 						>
-							ISCRIVITI PER SAPERNE DI PIÙ <ChevronRight className="ml-2" />
+							PER SAPERNE DI PIÙ <ChevronRight className="ml-2" />
 						</Button>
+					</div>
+				</div>
+			</section>
+
+			{/* Introduction Section */}
+			<section className="py-20 bg-gray-50">
+				<div className="container mx-auto px-4">
+					<div className="flex flex-col md:flex-row items-center gap-12">
+						<div className="md:w-1/2">
+							<Image
+								src="/professionale.jpeg"
+								alt="Carlo Cartier"
+								width={400}
+								height={400}
+								className="rounded-lg shadow-xl"
+							/>
+						</div>
+						<div className="md:w-1/2">
+							<h2 className="text-3xl font-bold mb-6">
+								La voce è il tuo biglietto da visita: impara ad usarla per
+								comunicare con sicurezza
+							</h2>
+							<p className="text-lg text-gray-700 mb-8">
+								Dedicato agli amanti della lettura, ai docenti, agli studenti,
+								agli avvocati, ai magistrati, ai politici, alle mamme, ai nonni
+								etc.
+							</p>
+							<p className="text-lg text-gray-700 mb-8">A chiunque utilizzi la voce come strumento di lavoro</p>
+							<Button
+								size="lg"
+								className="bg-black text-white hover:bg-gray-800 font-bold px-8 py-6 text-lg rounded-full"
+								onClick={openSignupDialog}
+							>
+								PER SAPERNE DI PIÙ <ChevronRight className="ml-2" />
+							</Button>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -246,71 +316,6 @@ export default function Home() {
 				</div>
 			</section>
 
-			{/* About Instructor Section */}
-			<section className="py-20 bg-white">
-				<div className="container mx-auto px-4">
-					<div className="flex flex-col md:flex-row items-center gap-12">
-						<div className="md:w-1/2">
-							<h2 className="text-3xl md:text-4xl font-bold mb-4">
-								Chi è Carlo Cartier?
-							</h2>
-							<p className="text-xl text-gray-700 mb-6">
-								Un Maestro della Voce con una Carriera Straordinaria
-							</p>
-							<p className="text-lg text-gray-700 mb-8">
-								Attore, formatore e coach vocale con oltre 45 anni di esperienza
-								nel mondo dello spettacolo e della formazione. Ha lavorato con
-								alcuni dei più grandi nomi del teatro e del cinema, e ora mette
-								la sua esperienza al tuo servizio per aiutarti a scoprire il
-								potenziale della tua voce.
-							</p>
-
-							<div className="mb-8 flex flex-col items-start">
-								<h3 className="text-xl font-bold mb-2">Credenziali</h3>
-								<Button variant="link" size="lg" className="text-lg">
-									<Link
-										href="https://www.fiorellagiannelli.it/artisti/cartier-carlo/"
-										target="_blank"
-									>
-										- Fiorella Giannelli Consulenza Artistica
-									</Link>
-								</Button>
-								<Button variant="link" size="lg" className="text-lg">
-									<Link
-										href="https://www.imdb.com/it/name/nm0142025"
-										target="_blank"
-									>
-										- IMDB
-									</Link>
-								</Button>
-							</div>
-
-							<p className="text-lg italic mb-8">
-								&quot;La mia missione è aiutarti a trovare la tua voce autentica e a
-								usarla per raggiungere i tuoi obiettivi.&quot;
-							</p>
-
-							<Button
-								size="lg"
-								className="bg-black text-white hover:bg-gray-800 font-bold px-8 py-6 text-lg rounded-full"
-								onClick={openSignupDialog}
-							>
-								ISCRIVITI PER SAPERNE DI PIÙ <ChevronRight className="ml-2" />
-							</Button>
-						</div>
-						<div className="md:w-1/2">
-							<Image
-								src="/sorriso.jpeg"
-								alt="Carlo Cartier"
-								width={600}
-								height={600}
-								className="rounded-lg shadow-xl"
-							/>
-						</div>
-					</div>
-				</div>
-			</section>
-
 			{/* Footer */}
 			<footer className="bg-black text-white py-12">
 				<div className="container mx-auto px-4 text-center">
@@ -322,7 +327,7 @@ export default function Home() {
 						className="bg-white text-black hover:bg-gray-200 hover:text-black font-bold px-8 py-6 text-lg rounded-full"
 						onClick={openSignupDialog}
 					>
-						ISCRIVITI PER SAPERNE DI PIÙ <ChevronRight className="ml-2" />
+						PER SAPERNE DI PIÙ <ChevronRight className="ml-2" />
 					</Button>
 					<div className="mt-12 text-sm text-gray-400">
 						© {new Date().getFullYear()} Carlo Cartier. Tutti i diritti
