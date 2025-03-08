@@ -57,7 +57,7 @@ export default function Home() {
 						</p>
 						<Button
 							size="lg"
-							className="bg-indigo-600 text-white hover:bg-indigo-500 font-bold px-8 py-6 text-lg rounded-full"
+							className="bg-blue-600 text-white hover:bg-blue-500 font-bold px-8 py-6 text-lg rounded-full"
 							onClick={openSignupDialog}
 						>
 							PER SAPERNE DI PIÙ <ChevronRight className="ml-2" />
@@ -109,16 +109,15 @@ export default function Home() {
 
 							<Button
 								size="lg"
-								className="bg-indigo-600 text-white hover:bg-indigo-500 font-bold px-8 py-6 text-lg rounded-full"
+								className="bg-blue-600 text-white hover:bg-blue-500 font-bold px-8 py-6 text-lg rounded-full"
 								onClick={openSignupDialog}
 							>
 								PER SAPERNE DI PIÙ <ChevronRight className="ml-2" />
 							</Button>
 						</div>
-						<div className="md:w-1/2">
+						<div className="md:w-1/2 w-full h-[400px]">
 							<iframe
-								width="560"
-								height="315"
+								className="w-full h-full"
 								src="https://www.youtube.com/embed/HKsQ_9494oY?si=yO4lHnOVKjLxWkiS"
 								title="Carlo Cartier Showreel"
 								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -262,6 +261,18 @@ export default function Home() {
 						<div className="bg-blue-800 p-8 rounded-lg hover:bg-blue-700 transition-colors text-white">
 							<div className="flex items-start mb-4">
 								<div className="bg-white text-black rounded-full p-2 mr-4">
+									<Mic className="w-6 h-6" />
+								</div>
+								<h3 className="text-xl font-bold">Dizione perfetta</h3>
+							</div>
+							<p>Elimina gli errori più comuni e parla con chiarezza.</p>
+						</div>
+					</div>
+
+					<div className="grid grid-cols-2 gap-8 mt-8 justify-center">
+						<div className="bg-blue-800 p-8 rounded-lg hover:bg-blue-700 transition-colors text-white">
+							<div className="flex items-start mb-4">
+								<div className="bg-white text-black rounded-full p-2 mr-4">
 									<BookOpen className="w-6 h-6" />
 								</div>
 								<h3 className="text-xl font-bold">Lettura a voce alta</h3>
@@ -270,16 +281,6 @@ export default function Home() {
 								Padroneggia l&apos;arte di leggere in modo coinvolgente e
 								persuasivo.
 							</p>
-						</div>
-
-						<div className="bg-blue-800 p-8 rounded-lg hover:bg-blue-700 transition-colors text-white">
-							<div className="flex items-start mb-4">
-								<div className="bg-white text-black rounded-full p-2 mr-4">
-									<Mic className="w-6 h-6" />
-								</div>
-								<h3 className="text-xl font-bold">Dizione perfetta</h3>
-							</div>
-							<p>Elimina gli errori più comuni e parla con chiarezza.</p>
 						</div>
 
 						<div className="bg-blue-800 p-8 rounded-lg hover:bg-blue-700 transition-colors text-white">
@@ -303,8 +304,9 @@ export default function Home() {
 						<p className="text-lg mb-8">
 							Ogni lezione è progettata per darti strumenti concreti che potrai
 							applicare immediatamente.
-							<br />6 incontri interattivi ogni mercoledì in sessioni massimo di
-							sei partecipanti.
+							<br />
+							<b>6 incontri</b> interattivi ogni mercoledì in sessioni massimo
+							di sei partecipanti.
 						</p>
 						<div className="flex gap-2 justify-center">
 							<div className="bg-blue-800 text-white p-6 rounded-lg inline-block">
