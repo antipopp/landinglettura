@@ -25,15 +25,6 @@ export default function Home() {
 		<div className="min-h-screen bg-white text-slate-800">
 			{/* Hero Section */}
 			<section className="relative overflow-hidden bg-gradient-to-b from-blue-50 to-indigo-100 text-gray-900">
-				{/* <div className="absolute inset-0 opacity-20">
-					<Image
-						src="/landing.jpg"
-						alt="Voice expression art"
-						fill
-						className="object-cover"
-						priority
-					/>
-				</div> */}
 				<div className="container mx-auto px-4 py-24 relative z-10">
 					<div className="max-w-3xl mx-auto text-center">
 						<h1 className="text-4xl md:text-6xl font-bold leading-tight">
@@ -115,12 +106,11 @@ export default function Home() {
 								PER SAPERNE DI PIÙ <ChevronRight className="ml-2" />
 							</Button>
 						</div>
-						<div className="md:w-1/2 w-full h-[400px]">
+						<div className="md:w-1/2 w-full h-[400px] overflow-hidden">
 							<iframe
 								className="w-full h-full"
 								src="https://www.youtube.com/embed/HKsQ_9494oY?si=yO4lHnOVKjLxWkiS"
 								title="Carlo Cartier Showreel"
-								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 								allowFullScreen
 							/>
 						</div>
@@ -186,53 +176,14 @@ export default function Home() {
 				</div>
 			</section>
 
-			{/* Introduction Section */}
-			{/* <section className="py-20 bg-gradient-to-r from-teal-50 to-blue-50">
-				<div className="container mx-auto px-4">
-					<div className="flex flex-col md:flex-row items-center gap-12">
-						<div className="md:w-1/2">
-							<Image
-								src="/professionale.jpeg"
-								alt="Carlo Cartier"
-								width={400}
-								height={400}
-								className="rounded-lg shadow-xl"
-							/>
-						</div>
-						<div className="md:w-1/2">
-							<h2 className="text-3xl font-bold mb-6">
-								La voce è il tuo biglietto da visita: impara ad usarla per
-								comunicare con sicurezza
-							</h2>
-							<p className="text-lg text-gray-700 mb-8">
-								Dedicato agli amanti della lettura, ai docenti, agli studenti,
-								agli avvocati, ai magistrati, ai politici, alle mamme, ai nonni
-								etc.
-							</p>
-							<p className="text-lg text-gray-700 mb-8">
-								A chiunque utilizzi la voce come strumento di lavoro
-							</p>
-							<Button
-								size="lg"
-								className="bg-teal-700 text-white hover:bg-teal-600 font-bold px-8 py-6 text-lg rounded-full"
-								onClick={openSignupDialog}
-							>
-								PER SAPERNE DI PIÙ <ChevronRight className="ml-2" />
-							</Button>
-						</div>
-					</div>
-				</div>
-			</section> */}
-
 			{/* What You&apos;ll Learn Section */}
-			{/* <section className="py-20 bg-gradient-to-br from-slate-900 to-blue-900 text-white"> */}
 			<section className="py-20 bg-gray-100">
 				<div className="container mx-auto px-4">
 					<h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">
 						Cosa Imparerai
 					</h2>
 
-					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 						<div className="bg-blue-800 p-8 rounded-lg hover:bg-blue-700 transition-colors text-white">
 							<div className="flex items-start mb-4">
 								<div className="bg-white text-black rounded-full p-2 mr-4">
@@ -269,7 +220,7 @@ export default function Home() {
 						</div>
 					</div>
 
-					<div className="grid grid-cols-2 gap-8 mt-8 justify-center">
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
 						<div className="bg-blue-800 p-8 rounded-lg hover:bg-blue-700 transition-colors text-white">
 							<div className="flex items-start mb-4">
 								<div className="bg-white text-black rounded-full p-2 mr-4">
@@ -308,7 +259,7 @@ export default function Home() {
 							<b>6 incontri</b> interattivi ogni mercoledì in sessioni massimo
 							di sei partecipanti.
 						</p>
-						<div className="flex gap-2 justify-center">
+						<div className="flex flex-row gap-2 justify-center">
 							<div className="bg-blue-800 text-white p-6 rounded-lg inline-block">
 								<div className="flex items-center mb-4">
 									<Calendar className="w-6 h-6 mr-2" />
