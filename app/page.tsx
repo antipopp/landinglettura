@@ -11,7 +11,6 @@ import {
 	Mic,
 	Users,
 } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -25,7 +24,7 @@ export default function Home() {
 	return (
 		<div className="min-h-screen bg-white text-slate-800">
 			{/* Hero Section */}
-			<section className="relative overflow-hidden bg-slate-50 text-gray-900">
+			<section className="relative overflow-hidden bg-gradient-to-b from-blue-50 to-indigo-100 text-gray-900">
 				{/* <div className="absolute inset-0 opacity-20">
 					<Image
 						src="/landing.jpg"
@@ -53,11 +52,12 @@ export default function Home() {
 							Trasforma la tua voce in un&apos;alleata straordinaria
 						</p>
 						<p className="text-2xl mb-10 font-bold">
-							Corsi interattivi di lettura a voce alta per comunicare con sicurezza ed emozione.
+							Corsi interattivi di lettura a voce alta per comunicare con
+							sicurezza ed emozione.
 						</p>
 						<Button
 							size="lg"
-							className="bg-red-600 text-white hover:bg-red-500 font-bold px-8 py-6 text-lg rounded-full"
+							className="bg-indigo-600 text-white hover:bg-indigo-500 font-bold px-8 py-6 text-lg rounded-full"
 							onClick={openSignupDialog}
 						>
 							PER SAPERNE DI PIÙ <ChevronRight className="ml-2" />
@@ -103,25 +103,26 @@ export default function Home() {
 							</div>
 
 							<p className="text-lg italic mb-8">
-								&quot;La mia missione è aiutarti a trovare la tua voce autentica e a
-								usarla per raggiungere i tuoi obiettivi.&quot;
+								&quot;La mia missione è aiutarti a trovare la tua voce autentica
+								e a usarla per raggiungere i tuoi obiettivi.&quot;
 							</p>
 
 							<Button
 								size="lg"
-								className="bg-red-600 text-white hover:bg-red-500 font-bold px-8 py-6 text-lg rounded-full"
+								className="bg-indigo-600 text-white hover:bg-indigo-500 font-bold px-8 py-6 text-lg rounded-full"
 								onClick={openSignupDialog}
 							>
 								PER SAPERNE DI PIÙ <ChevronRight className="ml-2" />
 							</Button>
 						</div>
 						<div className="md:w-1/2">
-							<Image
-								src="/sorriso.jpeg"
-								alt="Carlo Cartier"
-								width={600}
-								height={600}
-								className="rounded-lg shadow-xl"
+							<iframe
+								width="560"
+								height="315"
+								src="https://www.youtube.com/embed/HKsQ_9494oY?si=yO4lHnOVKjLxWkiS"
+								title="Carlo Cartier Showreel"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+								allowFullScreen
 							/>
 						</div>
 					</div>
@@ -136,46 +137,48 @@ export default function Home() {
 							Perché Scegliere Questo Corso
 						</h2>
 						<p className="text-xl text-gray-700">
-							La Voce che Ti Rappresenta: Un Corso Unico per Chi Vuole Fare la
-							Differenza
+							I corsi sono <b>interattivi e personalizzati</b>.<br />
+							Non sono lezioni registrate, ma esperienze vive in cui verrai
+							guidato passo dopo passo.
 						</p>
 					</div>
 
 					<div className="grid md:grid-cols-3 gap-8">
-						<Card className="p-8 hover:shadow-lg transition-shadow">
-							<Award className="w-12 h-12 mb-4 text-black" />
+						<Card className="p-8 hover:shadow-lg transition-shadow bg-gradient-to-br from-white to-blue-50">
+							<Award className="w-12 h-12 mb-4 text-indigo-600" />
 							<h3 className="text-xl font-bold mb-2">Esperienza garantita</h3>
 							<p className="text-gray-700">
 								45 anni di carriera teatrale, cinematografica e televisiva.
 							</p>
 						</Card>
 
-						<Card className="p-8 hover:shadow-lg transition-shadow">
-							<BookOpen className="w-12 h-12 mb-4 text-black" />
+						<Card className="p-8 hover:shadow-lg transition-shadow bg-gradient-to-br from-white to-blue-50">
+							<BookOpen className="w-12 h-12 mb-4 text-indigo-600" />
 							<h3 className="text-xl font-bold mb-2">Metodi collaudati</h3>
 							<p className="text-gray-700">
-								15 anni di formazione dedicata all&apos;arte della voce.
+								15 anni di formazione dedicata all&apos;educazione della voce.
 							</p>
 						</Card>
 
-						<Card className="p-8 hover:shadow-lg transition-shadow">
-							<Mic className="w-12 h-12 mb-4 text-black" />
+						<Card className="p-8 hover:shadow-lg transition-shadow bg-gradient-to-br from-white to-blue-50">
+							<Mic className="w-12 h-12 mb-4 text-indigo-600" />
 							<h3 className="text-xl font-bold mb-2">Risultati tangibili</h3>
 							<p className="text-gray-700">
-								Migliora la tua dizione, il tono, l&apos;espressività e la sicurezza.
+								Migliora la tua dizione, il tono, l&apos;espressività e la tua
+								sicurezza.
 							</p>
 						</Card>
 					</div>
 
 					<div className="mt-16 text-center">
 						<blockquote className="text-2xl italic font-light mb-8 max-w-3xl mx-auto">
-							&quot;La voce è lo strumento più potente che hai. Impara a usarla per
-							lasciare il segno in ogni conversazione, presentazione o
+							&quot;La voce è lo strumento più potente che hai. Impara a usarla
+							per lasciare il segno in ogni conversazione, presentazione o
 							performance.&quot;
 						</blockquote>
 						<Button
 							size="lg"
-							className="bg-black text-white hover:bg-gray-800 font-bold px-8 py-6 text-lg rounded-full"
+							className="bg-teal-700 text-white hover:bg-teal-600 font-bold px-8 py-6 text-lg rounded-full"
 							onClick={openSignupDialog}
 						>
 							PER SAPERNE DI PIÙ <ChevronRight className="ml-2" />
@@ -185,7 +188,7 @@ export default function Home() {
 			</section>
 
 			{/* Introduction Section */}
-			<section className="py-20 bg-gray-50">
+			{/* <section className="py-20 bg-gradient-to-r from-teal-50 to-blue-50">
 				<div className="container mx-auto px-4">
 					<div className="flex flex-col md:flex-row items-center gap-12">
 						<div className="md:w-1/2">
@@ -207,10 +210,12 @@ export default function Home() {
 								agli avvocati, ai magistrati, ai politici, alle mamme, ai nonni
 								etc.
 							</p>
-							<p className="text-lg text-gray-700 mb-8">A chiunque utilizzi la voce come strumento di lavoro</p>
+							<p className="text-lg text-gray-700 mb-8">
+								A chiunque utilizzi la voce come strumento di lavoro
+							</p>
 							<Button
 								size="lg"
-								className="bg-black text-white hover:bg-gray-800 font-bold px-8 py-6 text-lg rounded-full"
+								className="bg-teal-700 text-white hover:bg-teal-600 font-bold px-8 py-6 text-lg rounded-full"
 								onClick={openSignupDialog}
 							>
 								PER SAPERNE DI PIÙ <ChevronRight className="ml-2" />
@@ -218,73 +223,73 @@ export default function Home() {
 						</div>
 					</div>
 				</div>
-			</section>
+			</section> */}
 
 			{/* What You&apos;ll Learn Section */}
-			<section className="py-20 bg-gray-900 text-white">
+			{/* <section className="py-20 bg-gradient-to-br from-slate-900 to-blue-900 text-white"> */}
+			<section className="py-20 bg-gray-100">
 				<div className="container mx-auto px-4">
 					<h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">
-						Cosa imparerai
+						Cosa Imparerai
 					</h2>
 
 					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-						<div className="bg-gray-800 p-8 rounded-lg hover:bg-gray-700 transition-colors">
+						<div className="bg-blue-800 p-8 rounded-lg hover:bg-blue-700 transition-colors text-white">
 							<div className="flex items-start mb-4">
 								<div className="bg-white text-black rounded-full p-2 mr-4">
 									<Mic className="w-6 h-6" />
 								</div>
 								<h3 className="text-xl font-bold">Tecniche di respirazione</h3>
 							</div>
-							<p className="text-gray-300">
+							<p>
 								Scopri come controllare il respiro per una voce più stabile e
 								potente.
 							</p>
 						</div>
 
-						<div className="bg-gray-800 p-8 rounded-lg hover:bg-gray-700 transition-colors">
+						<div className="bg-blue-800 p-8 rounded-lg hover:bg-blue-700 transition-colors text-white">
 							<div className="flex items-start mb-4">
 								<div className="bg-white text-black rounded-full p-2 mr-4">
 									<Mic className="w-6 h-6" />
 								</div>
 								<h3 className="text-xl font-bold">Espressività</h3>
 							</div>
-							<p className="text-gray-300">
+							<p>
 								Impara a modulare tono, volume e ritmo per comunicare emozioni.
 							</p>
 						</div>
 
-						<div className="bg-gray-800 p-8 rounded-lg hover:bg-gray-700 transition-colors">
+						<div className="bg-blue-800 p-8 rounded-lg hover:bg-blue-700 transition-colors text-white">
 							<div className="flex items-start mb-4">
 								<div className="bg-white text-black rounded-full p-2 mr-4">
 									<BookOpen className="w-6 h-6" />
 								</div>
 								<h3 className="text-xl font-bold">Lettura a voce alta</h3>
 							</div>
-							<p className="text-gray-300">
-								Padroneggia l&apos;arte di leggere in modo coinvolgente e persuasivo.
+							<p>
+								Padroneggia l&apos;arte di leggere in modo coinvolgente e
+								persuasivo.
 							</p>
 						</div>
 
-						<div className="bg-gray-800 p-8 rounded-lg hover:bg-gray-700 transition-colors">
+						<div className="bg-blue-800 p-8 rounded-lg hover:bg-blue-700 transition-colors text-white">
 							<div className="flex items-start mb-4">
 								<div className="bg-white text-black rounded-full p-2 mr-4">
 									<Mic className="w-6 h-6" />
 								</div>
 								<h3 className="text-xl font-bold">Dizione perfetta</h3>
 							</div>
-							<p className="text-gray-300">
-								Elimina gli errori più comuni e parla con chiarezza.
-							</p>
+							<p>Elimina gli errori più comuni e parla con chiarezza.</p>
 						</div>
 
-						<div className="bg-gray-800 p-8 rounded-lg hover:bg-gray-700 transition-colors">
+						<div className="bg-blue-800 p-8 rounded-lg hover:bg-blue-700 transition-colors text-white">
 							<div className="flex items-start mb-4">
 								<div className="bg-white text-black rounded-full p-2 mr-4">
 									<Users className="w-6 h-6" />
 								</div>
 								<h3 className="text-xl font-bold">Applicazioni pratiche</h3>
 							</div>
-							<p className="text-gray-300">
+							<p>
 								Usa la tua voce per migliorare le tue performance professionali
 								e personali.
 							</p>
@@ -292,39 +297,44 @@ export default function Home() {
 					</div>
 
 					<div className="mt-12 text-center">
+						<h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+							Programma
+						</h2>
 						<p className="text-lg mb-8">
 							Ogni lezione è progettata per darti strumenti concreti che potrai
 							applicare immediatamente.
+							<br />6 incontri interattivi ogni mercoledì in sessioni massimo di
+							sei partecipanti.
 						</p>
-						<div className="bg-gray-800 p-6 rounded-lg inline-block">
-							<div className="flex items-center mb-4">
-								<Calendar className="w-6 h-6 mr-2" />
-								<h3 className="text-xl font-bold">Programma del corso</h3>
+						<div className="flex gap-2 justify-center">
+							<div className="bg-blue-800 text-white p-6 rounded-lg inline-block">
+								<div className="flex items-center mb-4">
+									<Calendar className="w-6 h-6 mr-2" />
+									<h3 className="text-xl font-bold">Turno A</h3>
+								</div>
+								<p>dalle 18:30 alle 20:00</p>
 							</div>
-							<p className="text-gray-300 mb-2">
-								6 incontri interattivi ogni mercoledì in sessioni massimo di sei
-								partecipanti
-							</p>
-							<p className="text-gray-300">
-								Sessione A: dalle 18:30 alle 19:45
-							</p>
-							<p className="text-gray-300">
-								Sessione B: dalle 20:00 alle 21:15
-							</p>
+							<div className="bg-blue-800 text-white p-6 rounded-lg inline-block">
+								<div className="flex items-center mb-4">
+									<Calendar className="w-6 h-6 mr-2" />
+									<h3 className="text-xl font-bold">Turno B</h3>
+								</div>
+								<p>dalle 20:15 alle 21:45</p>
+							</div>
 						</div>
 					</div>
 				</div>
 			</section>
 
 			{/* Footer */}
-			<footer className="bg-black text-white py-12">
+			<footer className="bg-gradient-to-r from-slate-900 to-indigo-950 text-white py-12">
 				<div className="container mx-auto px-4 text-center">
 					<h2 className="text-3xl font-bold mb-8">
 						Trasforma la Tua Voce, Trasforma la Tua Vita
 					</h2>
 					<Button
 						size="lg"
-						className="bg-white text-black hover:bg-gray-200 hover:text-black font-bold px-8 py-6 text-lg rounded-full"
+						className="bg-gradient-to-r from-indigo-500 to-teal-500 text-white hover:from-indigo-600 hover:to-teal-600 font-bold px-8 py-6 text-lg rounded-full"
 						onClick={openSignupDialog}
 					>
 						PER SAPERNE DI PIÙ <ChevronRight className="ml-2" />
