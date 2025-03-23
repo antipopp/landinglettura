@@ -109,7 +109,7 @@ export function SignupDialog({ open, onOpenChange }: SignupDialogProps) {
         Il costo totale del corso è di <strong>130 euro</strong>.
     </p>
     <p style="font-size: 16px; color: #666;">
-        Se sei interessato/a a partecipare, rispondi a questa email indicando la tua disponibilità.
+        Se sei interessato/a a partecipare, rispondi a questa email indicando la tua disponibilità e verrai ricontattato al più presto.
     </p>
 </body>
 </html>`,
