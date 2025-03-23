@@ -138,7 +138,7 @@ export function SignupDialog({ open, onOpenChange }: SignupDialogProps) {
 					<DialogFooter>
 						<Button
 							type="submit"
-							className="w-full bg-black text-white hover:bg-gray-800"
+							className="bg-blue-600 text-white hover:bg-blue-500 font-bold px-4 sm:px-8 py-4 sm:py-6 text-base sm:text-lg rounded-full w-full sm:w-auto"
 							disabled={isSubmitting}
 						>
 							{isSubmitting ? "Invio in corso..." : "INVIA"}
