@@ -321,7 +321,22 @@ export default function Home() {
 					</Button>
 					<div className="mt-12 text-sm text-gray-400">
 						© {new Date().getFullYear()} Carlo Cartier. Tutti i diritti
-						riservati.
+						riservati. |{" "}
+						<a
+							href="https://www.iubenda.com/privacy-policy/95752234"
+							className="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe"
+							title="Privacy Policy"
+						>
+							Privacy Policy
+						</a>
+						{" | "}
+						<a
+							href="https://www.iubenda.com/privacy-policy/95752234/cookie-policy"
+							className="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe"
+							title="Cookie Policy"
+						>
+							Cookie Policy
+						</a>
 					</div>
 				</div>
 			</footer>

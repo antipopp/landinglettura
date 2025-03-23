@@ -1,6 +1,7 @@
 import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import type React from "react";
 import "./globals.css";
 
@@ -18,6 +19,10 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="it">
+			<Script
+				type="text/javascript"
+				src="//embeds.iubenda.com/widgets/27d1dbfd-187e-4e3a-b0a8-46f126799b7d.js"
+			/>
 			<body className={inter.className}>
 				{children}
 				<Toaster />
