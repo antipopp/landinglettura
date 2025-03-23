@@ -41,10 +41,43 @@ export function SignupDialog({ open, onOpenChange }: SignupDialogProps) {
 
 		setIsSubmitting(true);
 
-		// Simulate API call
+		const data = new FormData();
+		data.append("Email", email);
+		data.append("Name", name);
+
 		try {
-			// Replace with actual API call
-			await new Promise((resolve) => setTimeout(resolve, 1000));
+			// POST to API
+			await fetch(
+				"https://script.google.com/macros/s/AKfycbwkqJbP_jHgItTcSUCZkKk7BWCjHxDuKtMtMX7DdEWb16zacQzP_A35wzElvxsLk3Pc/exec",
+				{
+					method: "POST",
+					body: data,
+				},
+			);
+
+			await fetch("/api/sendEmail", {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({
+					to: [email],
+					cc: [""],
+					message: {
+						subject: "Benvenuto",
+						text: "YOUR TEXT",
+						html: `
+						 <html>
+								<head></head>
+								<body>
+									 <p>Hello user</p>
+									 <p><b>Full Name:</b> ${name}</p>
+									 <p><b>Email:</b> ${email}</p>
+									 <br>
+									 <p>Thank you & Regards,<br><b>Team</b></p>
+								</body>
+						 </html>`,
+					},
+				}),
+			});
 
 			toast("Grazie per il tuo interesse. Ti contatteremo presto.");
 
