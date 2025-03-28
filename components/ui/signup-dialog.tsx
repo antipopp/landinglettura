@@ -22,6 +22,7 @@ interface SignupDialogProps {
 export function SignupDialog({ open, onOpenChange }: SignupDialogProps) {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
+	const [phone, setPhone] = useState("");
 	const [isSubmitting, setIsSubmitting] = useState(false);
 
 	const handleSubmit = async (e: React.FormEvent) => {
@@ -39,11 +40,19 @@ export function SignupDialog({ open, onOpenChange }: SignupDialogProps) {
 			return;
 		}
 
+		// Phone number validation
+		const phoneRegex = /^\d{10}$/;
+		if (!phoneRegex.test(phone)) {
+			toast("Per favore, inserisci un numero di telefono valido.");
+			return;
+		}
+
 		setIsSubmitting(true);
 
 		const data = new FormData();
 		data.append("Email", email);
 		data.append("Name", name);
+		data.append("Phone", phone);
 
 		try {
 			// POST to API
@@ -65,53 +74,132 @@ export function SignupDialog({ open, onOpenChange }: SignupDialogProps) {
 						subject: "Informazioni sul Laboratorio di Lettura a Voce Alta",
 						text: "",
 						html: `
-						 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laboratorio di Lettura a Voce Alta</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lettura a voce alta con CARLO CARTIER</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 24px;
+    }
+
+    .course-image {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .course-details {
+      margin: 20px 0;
+    }
+
+    .course-structure {
+      background-color: #f4f4f4;
+      padding: 15px;
+      border-radius: 5px;
+    }
+
+    .course-structure h2 {
+      color: #2c3e50;
+      border-bottom: 2px solid #2c3e50;
+      padding-bottom: 10px;
+    }
+
+    .course-structure ul {
+      padding-left: 20px;
+    }
+
+    .contact-info {
+      margin-top: 20px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .highlighted {
+      background-color: #2c3e50;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      margin-top: 20px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+  </style>
 </head>
-<body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 20px;">
-    <h1 style="font-size: 24px; color: #333;">LABORATORIO DI LETTURA A VOCE ALTA</h1>
-    <p style="font-size: 16px; color: #666;">
-        Il laboratorio si rivolge a chi parla in pubblico, a chi fa della voce e della lettura
-        uno strumento di lavoro o di ricerca personale (agli amanti della lettura, ai docenti,
-        <strong>agli studenti, agli avvocati, ai magistrati, ai politici, alle mamme, ai nonni ecc…</strong>).
-        La voce è il mezzo con cui la parola viene espressa; con essa si può discorrere,
-        esporre, convincere, insegnare, sedurre, insomma ci permette tutte le attività di
-        correlazione del vivere quotidiano. Essere coscienti del proprio strumento voce è
-        quindi migliorare le proprie capacità comunicative e di relazione. Il laboratorio va
-        inteso come luogo dove si possono ottenere dei miglioramenti, anche importanti,
-        nella dizione e nella lettura; verranno fornite le conoscenze e gli strumenti per
-        proseguire nell’apprendimento, anche esercitandosi e studiando da soli. Perché per
-        <strong>ottenere buoni risultati, duraturi, è necessaria una pratica costante.</strong>
-    </p>
 
-    <h2 style="font-size: 20px; color: #555;">Fasi del laboratorio</h2>
-    <ul style="font-size: 16px; color: #666;">
-        <li>esercizi di respirazione</li>
-        <li>esercizi di articolazione vocale</li>
-        <li>allenamento vocale e alla lettura ad alta voce con eventuali correzioni della pronuncia (dizione);</li>
-        <li>conseguimento di un’azione verbale efficace, espressiva, carica di intenzione, di ritmo, attraverso una voce organica e musicale capace di dare corpo alla comunicazione, all’emozione, al senso e all’immagine descritta.</li>
-        <li>analisi, lettura logica e interpretata di un testo per praticarne le differenze e le possibilità espressive e comunicative.</li>
+<body>
+  <div class="header highlighted">
+    <h1>Lettura a voce alta con CARLO CARTIER</h1>
+  </div>
+
+  <div class="course-details">
+    <p>Il laboratorio si rivolge a chi parla in pubblico, a chi fa della voce e della lettura uno strumento di
+      lavoro o di ricerca personale (<b>agli amanti della lettura, ai docenti, agli studenti, agli avvocati, ai
+        magistrati, ai politici, alle mamme, ai nonni ecc…</b>). La voce è il mezzo con cui la parola viene espressa;
+      con essa si può discorrere, esporre, convincere, insegnare, sedurre, insomma ci permette tutte le attività
+      di correlazione del vivere quotidiano.</p>
+
+    <p>Essere coscienti del proprio strumento voce è quindi migliorare le proprie capacità comunicative e di
+      relazione. Il laboratorio va inteso come luogo dove si possono ottenere dei miglioramenti, anche importanti,
+      nella dizione e nella lettura; verranno fornite le conoscenze e gli strumenti per proseguire
+      nell'apprendimento, anche esercitandosi e studiando da soli. Perché per <b>ottenere buoni risultati, duraturi,
+        è necessaria una pratica costante.</b></p>
+  </div>
+
+  <div class="course-structure">
+    <h2>FASI DEL LABORATORIO</h2>
+    <ul>
+      <li>Esercizi di respirazione</li>
+      <li>Allenamento vocale e alla lettura ad alta voce con eventuali correzioni della pronuncia (dizione)</li>
+      <li>Conseguimento di un'azione verbale efficace, espressiva, carica di intenzione, di ritmo, attraverso una
+        voce organica e musicale capace di dare corpo alla comunicazione, all'emozione, al senso e all'immagine
+        descritta</li>
+      <li>Analisi, lettura logica e interpretata di un testo per praticarne le differenze e le possibilità
+        espressive e comunicative</li>
     </ul>
 
-    <h2 style="font-size: 20px; color: #555;">Informazioni corso</h2>
-    <p style="font-size: 16px; color: #666;">
-        Il corso si svolgerà in due sessioni:
-    </p>
-    <ul style="font-size: 16px; color: #666;">
-        <li><strong>Prima sessione:</strong> 18:30 - 20:00</li>
-        <li><strong>Seconda sessione:</strong> 20:15 - 21:45</li>
+    <p><strong>Dettagli del corso:</strong></p>
+    <ul>
+      <li>Si svolge <b>ogni mercoledì</b></li>
+      <li>Totale di <b>sei incontri</b> di circa <b>1h30m</b></li>
+      <li>Massimo sei iscritti per sessione</li>
+      <li><b>Costo totale del seminario: 130€</b></li>
+      <li>Orari delle sessioni:
+        <ul>
+          <li>Prima sessione: 18:30 - 20:00</li>
+          <li>Seconda sessione: 20:15 - 21:45</li>
+        </ul>
+      </li>
     </ul>
-    <p style="font-size: 16px; color: #666;">
-        Il costo totale del corso è di <strong>130 euro</strong>.
-    </p>
-    <p style="font-size: 16px; color: #666;">
-        Se sei interessato/a a partecipare, rispondi a questa email indicando la tua disponibilità e verrai ricontattato al più presto.
-    </p>
+  </div>
+
+  <div class="highlighted">
+    Se sei interessato a partecipare rispondi a questa mail specificando il tuo recapito telefonico e la sessione.
+  </div>
+
+  <div class="contact-info">
+    <p>Ricevi questa mail perché hai prestato il tuo consenso tramite il mio sito web</p>
+  </div>
 </body>
+
 </html>`,
 					},
 				}),
@@ -122,6 +210,7 @@ export function SignupDialog({ open, onOpenChange }: SignupDialogProps) {
 			// Reset form and close dialog
 			setName("");
 			setEmail("");
+			setPhone("");
 			onOpenChange(false);
 		} catch (error) {
 			toast("Si è verificato un errore. Riprova più tardi.");
@@ -168,6 +257,21 @@ export function SignupDialog({ open, onOpenChange }: SignupDialogProps) {
 							value={email}
 							onChange={(e) => setEmail(e.target.value)}
 							placeholder="Inserisci la tua email"
+							className="w-full"
+							required
+						/>
+					</div>
+
+					<div className="space-y-2">
+						<Label htmlFor="phone" className="text-base">
+							Cellulare
+						</Label>
+						<Input
+							id="phone"
+							type="phone"
+							value={email}
+							onChange={(e) => setPhone(e.target.value)}
+							placeholder="Inserisci il tuo numero di cellulare"
 							className="w-full"
 							required
 						/>

@@ -2,13 +2,24 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import {
+	Carousel,
+	CarouselContent,
+	CarouselItem,
+	CarouselNext,
+	CarouselPrevious,
+} from "@/components/ui/carousel";
 import { SignupDialog } from "@/components/ui/signup-dialog";
+import reviews from "@/reviews.json";
 import {
 	Award,
 	BookOpen,
 	Calendar,
 	ChevronRight,
+	Facebook,
+	Instagram,
 	Mic,
+	Quote,
 	Users,
 } from "lucide-react";
 import Image from "next/image";
@@ -306,6 +317,36 @@ export default function Home() {
 				</div>
 			</section>
 
+			{/* Testimonials Section */}
+			<section className="py-20 bg-white">
+				<div className="container mx-auto px-2 sm:px-4">
+					<h2 className="text-3xl md:text-4xl font-bold text-center">
+						Cosa dicono di me
+					</h2>
+					<h3 className="text-xl md:text-2xl mb-16 text-center text-gray-600">Recensioni tratte dalla pagina Facebook</h3>
+
+					<Carousel className="w-full max-w-4xl mx-auto">
+						<CarouselContent>
+							{reviews.map((review) => (
+								<CarouselItem key={review.author}>
+									<div className="p-6 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl shadow-md">
+										<Quote className="w-10 h-10 text-blue-600 mb-4" />
+										<p className="text-lg mb-6 italic">
+											&quot;{review.content}&quot;
+										</p>
+										<div className="font-bold">{review.author}</div>
+									</div>
+								</CarouselItem>
+							))}
+						</CarouselContent>
+						<div className="justify-center mt-8 hidden md:flex">
+							<CarouselPrevious className="mr-2" />
+							<CarouselNext className="ml-2" />
+						</div>
+					</Carousel>
+				</div>
+			</section>
+
 			{/* Footer */}
 			<footer className="bg-gradient-to-r from-slate-900 to-indigo-950 text-white py-12">
 				<div className="container mx-auto px-2 sm:px-4 text-center">
@@ -319,6 +360,14 @@ export default function Home() {
 					>
 						PER SAPERNE DI PIÙ <ChevronRight className="ml-2" />
 					</Button>
+
+					<div className="flex justify-center gap-4 mt-8">
+            <Link href="https://www.facebook.com/carlo.cartier.seminari.lettura" className="bg-white text-indigo-900 p-3 rounded-full hover:bg-indigo-100 transition-colors">
+              <Facebook className="w-6 h-6" />
+              <span className="sr-only">Facebook</span>
+            </Link>
+          </div>
+					
 					<div className="mt-12 text-sm text-gray-400">
 						© {new Date().getFullYear()} Carlo Cartier. Tutti i diritti
 						riservati. |{" "}
