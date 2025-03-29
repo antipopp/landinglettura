@@ -269,7 +269,7 @@ export function SignupDialog({ open, onOpenChange }: SignupDialogProps) {
 						<Input
 							id="phone"
 							type="phone"
-							value={email}
+							value={phone}
 							onChange={(e) => setPhone(e.target.value)}
 							placeholder="Inserisci il tuo numero di cellulare"
 							className="w-full"
