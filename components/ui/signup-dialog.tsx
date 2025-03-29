@@ -22,7 +22,6 @@ interface SignupDialogProps {
 export function SignupDialog({ open, onOpenChange }: SignupDialogProps) {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
-	const [phone, setPhone] = useState("");
 	const [isSubmitting, setIsSubmitting] = useState(false);
 
 	const handleSubmit = async (e: React.FormEvent) => {
@@ -40,19 +39,11 @@ export function SignupDialog({ open, onOpenChange }: SignupDialogProps) {
 			return;
 		}
 
-		// Phone number validation
-		const phoneRegex = /^\d{10}$/;
-		if (!phoneRegex.test(phone)) {
-			toast("Per favore, inserisci un numero di telefono valido.");
-			return;
-		}
-
 		setIsSubmitting(true);
 
 		const data = new FormData();
 		data.append("Email", email);
 		data.append("Name", name);
-		data.append("Phone", phone);
 
 		try {
 			// POST to API
@@ -210,7 +201,6 @@ export function SignupDialog({ open, onOpenChange }: SignupDialogProps) {
 			// Reset form and close dialog
 			setName("");
 			setEmail("");
-			setPhone("");
 			onOpenChange(false);
 		} catch (error) {
 			toast("Si è verificato un errore. Riprova più tardi.");
@@ -262,21 +252,6 @@ export function SignupDialog({ open, onOpenChange }: SignupDialogProps) {
 						/>
 					</div>
 
-					<div className="space-y-2">
-						<Label htmlFor="phone" className="text-base">
-							Cellulare
-						</Label>
-						<Input
-							id="phone"
-							type="phone"
-							value={phone}
-							onChange={(e) => setPhone(e.target.value)}
-							placeholder="Inserisci il tuo numero di cellulare"
-							className="w-full"
-							required
-						/>
-					</div>
-
 					<DialogFooter>
 						<Button
 							type="submit"
@@ -287,6 +262,11 @@ export function SignupDialog({ open, onOpenChange }: SignupDialogProps) {
 						</Button>
 					</DialogFooter>
 				</form>
+
+				{/* Check your spam */}
+				<DialogDescription className="text-sm text-center">
+					Controlla la tua cartella spam se non ricevi la nostra email.
+				</DialogDescription>
 			</DialogContent>
 		</Dialog>
 	);
