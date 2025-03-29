@@ -8,7 +8,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-	title: "Carlo Cartier | Corso di Voce",
+	title: "Carlo Cartier | Corso di Lettura a Voce Alta",
 	description: "Trasforma la Tua Lettura in Arte con Carlo Cartier",
 };
 
