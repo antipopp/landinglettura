@@ -294,7 +294,7 @@ export default function Home() {
 							Ogni lezione è progettata per darti strumenti concreti che potrai
 							applicare immediatamente.
 							<br />
-							<b>6 incontri</b> interattivi ogni mercoledì in sessioni massimo
+							<b>6 incontri</b> interattivi ogni martedì in sessioni massimo
 							di sei partecipanti.
 						</p>
 						<div className="flex flex-col sm:flex-row gap-2 justify-center">
@@ -303,15 +303,15 @@ export default function Home() {
 									<Calendar className="w-6 h-6 mr-2" />
 									<h3 className="text-xl font-bold">Turno A</h3>
 								</div>
-								<p>dalle 18:30 alle 20:00</p>
+								<p>dalle 20:00 alle 21:30</p>
 							</div>
-							<div className="bg-blue-800 text-white p-6 rounded-lg inline-block">
+							{/* <div className="bg-blue-800 text-white p-6 rounded-lg inline-block">
 								<div className="flex items-center mb-4">
 									<Calendar className="w-6 h-6 mr-2" />
 									<h3 className="text-xl font-bold">Turno B</h3>
 								</div>
 								<p>dalle 20:15 alle 21:45</p>
-							</div>
+							</div> */}
 						</div>
 					</div>
 				</div>

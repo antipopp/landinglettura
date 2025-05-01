@@ -170,16 +170,11 @@ export function SignupDialog({ open, onOpenChange }: SignupDialogProps) {
 
     <p><strong>Dettagli del corso:</strong></p>
     <ul>
-      <li>Si svolge <b>ogni mercoledì</b></li>
+      <li>Si svolge <b>ogni martedì</b></li>
       <li>Totale di <b>sei incontri</b> di circa <b>1h30m</b></li>
       <li>Massimo sei iscritti per sessione</li>
       <li><b>Costo totale del seminario: 130€</b></li>
-      <li>Orari delle sessioni:
-        <ul>
-          <li>Prima sessione: 18:30 - 20:00</li>
-          <li>Seconda sessione: 20:15 - 21:45</li>
-        </ul>
-      </li>
+      <li>Orario delle sessioni: 20:00 - 21:30</li>
     </ul>
   </div>
 
