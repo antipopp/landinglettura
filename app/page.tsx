@@ -294,7 +294,7 @@ export default function Home() {
 							Ogni lezione è progettata per darti strumenti concreti che potrai
 							applicare immediatamente.
 							<br />
-							<b>6 incontri</b> interattivi ogni martedì in sessioni massimo
+							<b>6 incontri</b> interattivi ogni martedì con un massimo
 							di sei partecipanti.
 						</p>
 						<div className="flex flex-col sm:flex-row gap-2 justify-center">
