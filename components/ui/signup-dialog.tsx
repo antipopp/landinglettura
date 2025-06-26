@@ -2,69 +2,73 @@
 
 import { Button } from "@/components/ui/button";
 import {
-	Dialog,
-	DialogContent,
-	DialogDescription,
-	DialogFooter,
-	DialogHeader,
-	DialogTitle,
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import { toast } from "sonner";
+import { Checkbox } from "./checkbox";
 
 interface SignupDialogProps {
-	open: boolean;
-	onOpenChange: (open: boolean) => void;
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
 }
 
 export function SignupDialog({ open, onOpenChange }: SignupDialogProps) {
-	const [name, setName] = useState("");
-	const [email, setEmail] = useState("");
-	const [isSubmitting, setIsSubmitting] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [preference, setPreference] = useState<string[]>([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-	const handleSubmit = async (e: React.FormEvent) => {
-		e.preventDefault();
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
 
-		if (!name.trim() || !email.trim()) {
-			toast("Per favore, compila tutti i campi.");
-			return;
-		}
+    if (!name.trim() || !email.trim()) {
+      toast("Per favore, compila tutti i campi.");
+      return;
+    }
 
-		// Email validation
-		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-		if (!emailRegex.test(email)) {
-			toast("Per favore, inserisci un indirizzo email valido.");
-			return;
-		}
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast("Per favore, inserisci un indirizzo email valido.");
+      return;
+    }
 
-		setIsSubmitting(true);
+    setIsSubmitting(true);
 
-		const data = new FormData();
-		data.append("Email", email);
-		data.append("Name", name);
+    const data = new FormData();
+    data.append("Email", email);
+    data.append("Name", name);
+    data.append("Martedì", preference.includes("Martedì") ? "Sì" : "No");
+    data.append("Mercoledì", preference.includes("Mercoledì") ? "Sì" : "No");
 
-		try {
-			// POST to API
-			await fetch(
-				"https://script.google.com/macros/s/AKfycbwkqJbP_jHgItTcSUCZkKk7BWCjHxDuKtMtMX7DdEWb16zacQzP_A35wzElvxsLk3Pc/exec",
-				{
-					method: "POST",
-					body: data,
-				},
-			);
+    try {
+      // POST to API
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbwkqJbP_jHgItTcSUCZkKk7BWCjHxDuKtMtMX7DdEWb16zacQzP_A35wzElvxsLk3Pc/exec",
+        {
+          method: "POST",
+          body: data,
+        },
+      );
 
-			await fetch("/api/sendEmail", {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify({
-					to: [email],
-					cc: [""],
-					message: {
-						subject: "Informazioni sul Laboratorio di Lettura a Voce Alta",
-						text: "",
-						html: `
+      await fetch("/api/sendEmail", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          to: [email],
+          cc: [""],
+          message: {
+            subject: "Informazioni sul Laboratorio di Lettura a Voce Alta",
+            text: "",
+            html: `
 <!DOCTYPE html>
 <html lang="it">
 
@@ -170,16 +174,24 @@ export function SignupDialog({ open, onOpenChange }: SignupDialogProps) {
 
     <p><strong>Dettagli del corso:</strong></p>
     <ul>
-      <li>Si svolge <b>ogni martedì</b></li>
+			<li>Inizio: <b>Martedì 7 Novembre</b> o <b>Mercoledì 8 Novembre</b></li>
+      <li>Si svolge il <b>martedì</b> o il <b>mercoledì</b></li>
+			<li>È possibile partecipare a una sola classe a settimana</li>
       <li>Totale di <b>sei incontri</b> di circa <b>1h30m</b></li>
-      <li>Massimo sei iscritti per sessione</li>
+      <li>Massimo sei iscritti per classe</li>
       <li><b>Costo totale del seminario: 130€</b></li>
-      <li>Orario delle sessioni: 20:00 - 21:30</li>
+      <li>Orario delle classi:
+        <ul>
+          <li>Classe del Martedì: dalle 20:00 alle 21:30</li>
+          <li>Classe del Mercoledì: dalle 18:30 alle 20:00</li>
+        </ul>
+      </li>
     </ul>
   </div>
 
   <div class="highlighted">
-    Se sei interessato a partecipare rispondi a questa mail specificando il tuo recapito telefonico e la sessione.
+    Se sei interessato a partecipare rispondi a questa mail specificando il tuo recapito telefonico e confermando la
+    classe selezionata.
   </div>
 
   <div class="contact-info">
@@ -188,82 +200,124 @@ export function SignupDialog({ open, onOpenChange }: SignupDialogProps) {
 </body>
 
 </html>`,
-					},
-				}),
-			});
+          },
+        }),
+      });
 
-			toast("Grazie per il tuo interesse. Ti contatteremo presto.");
+      toast("Grazie per il tuo interesse. Ti contatteremo presto.");
 
-			// Reset form and close dialog
-			setName("");
-			setEmail("");
-			onOpenChange(false);
-		} catch (error) {
-			toast("Si è verificato un errore. Riprova più tardi.");
-		} finally {
-			setIsSubmitting(false);
-		}
-	};
+      // Reset form and close dialog
+      setName("");
+      setEmail("");
+      onOpenChange(false);
+    } catch (error) {
+      toast("Si è verificato un errore. Riprova più tardi.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
-	return (
-		<Dialog open={open} onOpenChange={onOpenChange}>
-			<DialogContent className="sm:max-w-[425px]">
-				<DialogHeader>
-					<DialogTitle className="text-2xl font-bold">
-						Iscriviti per saperne di più
-					</DialogTitle>
-					<DialogDescription>
-						Inserisci i tuoi dati per ricevere informazioni sul corso con Carlo
-						Cartier.
-					</DialogDescription>
-				</DialogHeader>
+  return (
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle className="text-2xl font-bold">
+            Iscriviti per saperne di più
+          </DialogTitle>
+          <DialogDescription>
+            Inserisci i tuoi dati per ricevere informazioni sul corso con Carlo
+            Cartier.
+          </DialogDescription>
+        </DialogHeader>
 
-				<form onSubmit={handleSubmit} className="space-y-6 py-4">
-					<div className="space-y-2">
-						<Label htmlFor="name" className="text-base">
-							Nome e Cognome
-						</Label>
-						<Input
-							id="name"
-							value={name}
-							onChange={(e) => setName(e.target.value)}
-							placeholder="Inserisci il tuo nome completo"
-							className="w-full"
-							required
-						/>
-					</div>
+        <form onSubmit={handleSubmit} className="space-y-6 py-4">
+          <div className="space-y-2">
+            <Label htmlFor="name" className="text-base">
+              Nome e Cognome
+            </Label>
+            <Input
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Inserisci il tuo nome completo"
+              className="w-full"
+              required
+            />
+          </div>
 
-					<div className="space-y-2">
-						<Label htmlFor="email" className="text-base">
-							Email
-						</Label>
-						<Input
-							id="email"
-							type="email"
-							value={email}
-							onChange={(e) => setEmail(e.target.value)}
-							placeholder="Inserisci la tua email"
-							className="w-full"
-							required
-						/>
-					</div>
+          <div className="space-y-2">
+            <Label htmlFor="email" className="text-base">
+              Email
+            </Label>
+            <Input
+              id="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Inserisci la tua email"
+              className="w-full"
+              required
+            />
+          </div>
 
-					<DialogFooter>
-						<Button
-							type="submit"
-							className="bg-blue-600 text-white hover:bg-blue-500 font-bold px-4 sm:px-8 py-4 sm:py-6 text-base sm:text-lg rounded-full w-full sm:w-auto"
-							disabled={isSubmitting}
-						>
-							{isSubmitting ? "Invio in corso..." : "INVIA"}
-						</Button>
-					</DialogFooter>
-				</form>
+          <div className="space-y-2">
+            <Label className="text-base">Preferenza di partecipazione</Label>
+            <div className="flex flex-col space-y-2">
+              <div>
+                <Checkbox
+                  id="tuesday"
+                  value="Martedì"
+                  checked={!!preference.find((v) => v === "Martedì")}
+                  onCheckedChange={(checked) => {
+                    setPreference((prev) =>
+                      checked
+                        ? [...prev, "Martedì"]
+                        : prev.filter((v) => v !== "Martedì"),
+                    );
+                  }}
+                  required={preference.length === 0}
+                />
+                <Label htmlFor="tuesday" className="ml-2">
+                  Martedì (20:00 - 21:30)
+                </Label>
+              </div>
+              <div className="mt-2">
+                <Checkbox
+                  id="wednesday"
+                  value="Wednesday"
+                  checked={!!preference.find((v) => v === "Mercoledì")}
+                  onCheckedChange={(checked) => {
+                    setPreference((prev) =>
+                      checked
+                        ? [...prev, "Mercoledì"]
+                        : prev.filter((v) => v !== "Mercoledì"),
+                    );
+                  }}
+                  required={preference.length === 0}
+                />
+                <Label htmlFor="wednesday" className="ml-2">
+                  Mercoledì (18:30 - 20:00)
+                </Label>
+              </div>
+            </div>
+          </div>
 
-				{/* Check your spam */}
-				<DialogDescription className="text-sm text-center">
-					Controlla la tua cartella spam se non ricevi la nostra email.
-				</DialogDescription>
-			</DialogContent>
-		</Dialog>
-	);
+          <DialogFooter>
+            <Button
+              type="submit"
+              className="bg-blue-600 text-white hover:bg-blue-500 font-bold px-4 sm:px-8 py-4 sm:py-6 text-base sm:text-lg rounded-full w-full sm:w-auto"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Invio in corso..." : "INVIA"}
+            </Button>
+          </DialogFooter>
+        </form>
+
+        {/* Check your spam */}
+        <DialogDescription className="text-sm text-center">
+          Controlla la tua cartella spam se non ricevi la nostra email.
+        </DialogDescription>
+      </DialogContent>
+    </Dialog>
+  );
 }
