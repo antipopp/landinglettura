@@ -174,9 +174,9 @@ export function SignupDialog({ open, onOpenChange }: SignupDialogProps) {
 
     <p><strong>Dettagli del corso:</strong></p>
     <ul>
-			<li>Inizio: <b>Martedì 7 Novembre</b> o <b>Mercoledì 8 Novembre</b></li>
+      <li>Inizio: <b>Martedì 23 Settembre</b> o <b>Mercoledì 24 Settembre</b></li>
       <li>Si svolge il <b>martedì</b> o il <b>mercoledì</b></li>
-			<li>È possibile partecipare a una sola classe a settimana</li>
+      <li>È possibile partecipare a una sola classe a settimana</li>
       <li>Totale di <b>sei incontri</b> di circa <b>1h30m</b></li>
       <li>Massimo sei iscritti per classe</li>
       <li><b>Costo totale del seminario: 130€</b></li>
