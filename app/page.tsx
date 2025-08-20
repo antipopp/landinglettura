@@ -24,18 +24,20 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const [openSignup, setOpenSignup] = useState(false);
 
   const openSignupDialog = () => {
     setOpenSignup(true);
+  };
 
-    if (typeof window !== "undefined" && (window as any).fbq) {
+  useEffect(() => {
+    if (openSignup && typeof window !== "undefined" && (window as any).fbq) {
       (window as any).fbq("trackCustom", "SignupDialogOpened");
     }
-  };
+  }, [openSignup]);
 
   return (
     <div className="min-h-screen bg-white text-slate-800">
