@@ -204,6 +204,15 @@ export function SignupDialog({ open, onOpenChange }: SignupDialogProps) {
         }),
       });
 
+      // === TRACKING META PIXEL ===
+      if (typeof window !== "undefined" && (window as any).fbq) {
+        (window as any).fbq("track", "Lead", {
+          name,
+          email,
+          preference: preference.join(", "),
+        });
+      }
+
       toast("Grazie per il tuo interesse. Ti contatteremo presto.");
 
       // Reset form and close dialog

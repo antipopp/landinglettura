@@ -31,6 +31,10 @@ export default function Home() {
 
   const openSignupDialog = () => {
     setOpenSignup(true);
+
+    if (typeof window !== "undefined" && (window as any).fbq) {
+      (window as any).fbq("trackCustom", "SignupDialogOpened");
+    }
   };
 
   return (
