@@ -5,10 +5,8 @@ import { Inter } from "next/font/google";
 import Script from "next/script";
 import type React from "react";
 import "./globals.css";
-import * as fbq from "@/lib/fpixel";
 import { FB_PIXEL_ID } from "@/lib/fpixel";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import FacebookPixel from "@/components/FacebookPixel";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,41 +22,13 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="it">
-			<head>
-        {/* Script di Meta Pixel */}
-				<Script
-        id="fb-pixel"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            !function(f,b,e,v,n,t,s)
-						{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-						n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-						if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-						n.queue=[];t=b.createElement(e);t.async=!0;
-						t.src=v;s=b.getElementsByTagName(e)[0];
-						s.parentNode.insertBefore(t,s)}(window, document,'script',
-						'https://connect.facebook.net/en_US/fbevents.js');
-						fbq('init', ${fbq.FB_PIXEL_ID}));
-						fbq('track', 'PageView');
-          `,
-        }}
-      />
-      </head>
 			<Script
 				type="text/javascript"
 				src="//embeds.iubenda.com/widgets/27d1dbfd-187e-4e3a-b0a8-46f126799b7d.js"
 			/>
 			<body className={inter.className}>
-				<noscript>
-          <img
-            height="1"
-            width="1"
-            style={{ display: "none" }}
-            src={`https://www.facebook.com/tr?id=${FB_PIXEL_ID}&ev=PageView&noscript=1`}
-          />
-        </noscript>
 				{children}
+				<FacebookPixel />
 				<Toaster />
 				<Analytics />
 			</body>
