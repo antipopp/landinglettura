@@ -5,6 +5,10 @@ import { Inter } from "next/font/google";
 import Script from "next/script";
 import type React from "react";
 import "./globals.css";
+import * as fbq from "@/lib/fpixel";
+import { FB_PIXEL_ID } from "@/lib/fpixel";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,8 +26,11 @@ export default function RootLayout({
 		<html lang="it">
 			<head>
         {/* Script di Meta Pixel */}
-        <Script id="meta-pixel" strategy="afterInteractive">
-          {`
+				<Script
+        id="fb-pixel"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
             !function(f,b,e,v,n,t,s)
 						{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 						n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -32,10 +39,11 @@ export default function RootLayout({
 						t.src=v;s=b.getElementsByTagName(e)[0];
 						s.parentNode.insertBefore(t,s)}(window, document,'script',
 						'https://connect.facebook.net/en_US/fbevents.js');
-						fbq('init', '789997070275979');
+						fbq('init', ${fbq.FB_PIXEL_ID}));
 						fbq('track', 'PageView');
-          `}
-        </Script>
+          `,
+        }}
+      />
       </head>
 			<Script
 				type="text/javascript"
@@ -47,7 +55,7 @@ export default function RootLayout({
             height="1"
             width="1"
             style={{ display: "none" }}
-            src="https://www.facebook.com/tr?id=789997070275979&ev=PageView&noscript=1"
+            src={`https://www.facebook.com/tr?id=${FB_PIXEL_ID}&ev=PageView&noscript=1`}
           />
         </noscript>
 				{children}

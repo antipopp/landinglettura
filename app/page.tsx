@@ -35,6 +35,7 @@ export default function Home() {
 
   useEffect(() => {
     if (openSignup && typeof window !== "undefined" && (window as any).fbq) {
+      console.log("Tracking SignupDialogOpened event");
       (window as any).fbq("trackCustom", "SignupDialogOpened");
     }
   }, [openSignup]);
